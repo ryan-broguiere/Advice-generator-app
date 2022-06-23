@@ -1,4 +1,4 @@
-function generateAdvice(id, newAdvice) {
+function changeText(id, newAdvice) {
     const adviceID = document.getElementById('adviceID')
     const advice = document.getElementById('advice')
    
@@ -6,9 +6,10 @@ function generateAdvice(id, newAdvice) {
     advice.innerText = '"' + newAdvice + '"'
 }
 
-test = () => {
+generateAdvice = () => {
     fetch('https://api.adviceslip.com/advice')
     .then (response => (response.json()))
-    .then (data => generateAdvice(data.slip.id, data.slip.advice))
-      
+    .then (data => changeText(data.slip.id, data.slip.advice))      
 }
+
+generateAdvice() //default 
